@@ -1,4 +1,4 @@
-* ===== NEUES, EPISCHES DESIGN ===== */
+/* ===== NEUES, EPISCHES DESIGN ===== */
 :root {
     --black: #0a0a0a;
     --dark-gray: #1a1a1a;
@@ -230,7 +230,7 @@ body {
     background: var(--gold);
 }
 
-/* Gildenlevel Progress Bar */
+/* Gildenlevel Progress Bar - ANGEPASST auf Stufe 1 von 100 */
 .guild-level {
     margin: 3rem auto;
     text-align: center;
@@ -260,7 +260,7 @@ body {
 
 .level-progress {
     height: 100%;
-    width: 0;
+    width: 1%; /* ANGEPASST: 1% statt 0 für Stufe 1 */
     background: linear-gradient(90deg, var(--bronze), var(--gold));
     transition: width 2s cubic-bezier(0.25, 0.1, 0.25, 1);
     position: relative;
@@ -280,7 +280,7 @@ body {
 }
 
 .level-bar::after {
-    content: '80%';
+    content: '1%'; /* ANGEPASST: 1% statt 80% */
     position: absolute;
     right: 10px;
     top: 50%;
@@ -413,12 +413,14 @@ body {
     background: var(--gold);
 }
 
+/* ANGEPASSTES LAYOUT: Zwei oben, eine darunter in der Mitte */
 .leader-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     max-width: 700px;
     margin: 2rem auto 0;
+    position: relative;
 }
 
 .leader-card {
@@ -465,10 +467,22 @@ body {
     font-style: italic;
 }
 
+/* Dritte Karte in der Mitte darunter */
+.leader-card.centered {
+    grid-column: 1 / -1; /* Nimmt beide Spalten ein */
+    justify-self: center;
+    max-width: 300px; /* Etwas schmaler für besseren visuellen Effekt */
+}
+
 /* Mobile Ansicht */
 @media (max-width: 600px) {
     .leader-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .leader-card.centered {
+        grid-column: 1;
+        max-width: 100%;
     }
 }
 /* ===== KONTAKTFORMULAR ===== */
