@@ -41,17 +41,17 @@
         <p class="centered-text">Wir sind eine aktive FoE-Gilde mit Fokus auf Gemeinschaft und strategischem Spiel.</p>
         
         <div class="guild-level">
-            <h3>Gildenstufe: <span id="level">11</span>/100</h3>
+            <h3>Gildenstufe: <span id="level">1</span>/100</h3>
             <div class="level-bar">
                 <div class="level-progress" id="level-bar"></div>
             </div>
-            <p class="current-level">Aktuell: Stufe 11</p>
+            <p class="current-level">Aktuell: Stufe 1</p>
         </div>
 
         <ul class="boost-list">
-            <li>?% Rekrutierungs-Boost</li>
-            <li>?FP durch das Rathaus</li>
-            <li>?% Baurabatt</li>
+            <li>+8% Rekrutierungs-Boost</li>
+            <li>+9 FP täglich durch das Rathaus</li>
+            <li>-14% Baukostenrabatt</li>
         </ul>
 
         <div class="expectations-container">
@@ -82,7 +82,7 @@
     <!-- Leaders Section -->
     <section class="leaders" id="leaders">
         <h2>GILDENVERWALTUNG</h2>
-        <div class="leader-grid">
+        <div class="leader-grid two-top-one-bottom">
             <div class="leader-card">
                 <h3>Troublemaker 1999</h3>
                 <p>Gildenrat | QI-Leitung</p>
@@ -91,105 +91,18 @@
                 <h3>Philipp5902</h3>
                 <p>Gildenleitung | GG-Leitung</p>
             </div>
-            <div class="leader-card">
+            <div class="leader-card center-card">
                 <h3>-Nemesis-</h3>
-                <p>GG</p>
+                <p>Verwaltung</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Form -->
-    <section class="contact" id="contact">
-        <h2>BEWERBUNGSFORMULAR</h2>
-        <form class="contact-form" action="https://formspree.io/f/xblkjawb" method="POST">
-            <div class="form-group">
-                <label for="name">Spielername</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">E-Mail</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Warum möchtest du beitreten?</label>
-                <textarea id="message" name="message" required></textarea>
-            </div>
-            <button type="submit" class="btn">Absenden</button>
-        </form>
-    </section>
-
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 BLACK PEARL | Forge of Empires</p>
+        <p>&copy; 2025 BLACK PEARL | Alle Rechte vorbehalten</p>
     </footer>
 
-    <script>
-        // Progress Bar Animation
-        let startTime = null;
-        const bar = document.getElementById("level-bar");
-        const duration = 2000;
-        const targetWidth = 80;
-
-        function animateProgressBar(timestamp) {
-            if (!startTime) startTime = timestamp;
-            const progress = Math.min((timestamp - startTime) / duration, 1);
-            bar.style.width = (progress * targetWidth) + "%";
-            if (progress < 1) {
-                requestAnimationFrame(animateProgressBar);
-            }
-        }
-
-        // Email Popup Handling
-        const toggleEmail = document.getElementById("toggle-email");
-        const emailPopup = document.getElementById("email-popup");
-        const closeBtn = document.querySelector(".close-btn");
-
-        toggleEmail.addEventListener("click", (e) => {
-            e.preventDefault();
-            emailPopup.classList.toggle("visible");
-        });
-
-        closeBtn.addEventListener("click", () => {
-            emailPopup.classList.remove("visible");
-        });
-
-        window.addEventListener("click", (e) => {
-            if (e.target === emailPopup) {
-                emailPopup.classList.remove("visible");
-            }
-        });
-
-        // Contact Form Toggle
-        const contactBtn = document.getElementById("contact-btn");
-        const heroContactBtn = document.getElementById("hero-contact-btn");
-        const contactSection = document.querySelector(".contact");
-
-        function toggleContactForm() {
-            if (contactSection.style.display === "block") {
-                contactSection.style.display = "none";
-            } else {
-                contactSection.style.display = "block";
-                window.scrollTo({
-                    top: contactSection.offsetTop,
-                    behavior: "smooth"
-                });
-            }
-        }
-
-        contactBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            toggleContactForm();
-        });
-
-        heroContactBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            toggleContactForm();
-        });
-
-        // Initialize
-        window.onload = () => {
-            requestAnimationFrame(animateProgressBar);
-        };
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
