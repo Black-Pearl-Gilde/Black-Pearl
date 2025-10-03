@@ -1,45 +1,67 @@
-/* Allgemeines */
+/* ===========================
+   Farben & Fonts
+=========================== */
+:root {
+    --gold: #d4af37;
+    --gold-light: #f5d76e;
+    --bronze: #8c7851;
+    --dark-bg: #0b0b0b;
+    --dark-panel: #1a1a1a;
+    --text-light: #eaeaea;
+    --text-muted: #aaa;
+}
+
+/* ===========================
+   Allgemein
+=========================== */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Cinzel', serif;
-    background-color: #111;
-    color: #f5f5f5;
+    background-color: var(--dark-bg);
+    color: var(--text-light);
 }
 
-/* Navbar */
+/* ===========================
+   Navbar
+=========================== */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #000;
+    background: rgba(0, 0, 0, 0.95);
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom: 1px solid var(--gold);
 }
 
 .logo {
     font-family: 'MedievalSharp', cursive;
-    font-size: 1.5rem;
-    color: gold;
+    font-size: 1.8rem;
+    color: var(--gold);
+    text-shadow: 0 0 6px rgba(212, 175, 55, 0.7);
 }
 
 .nav-links a {
     margin-left: 1.5rem;
     text-decoration: none;
-    color: #f5f5f5;
+    color: var(--text-light);
     transition: color 0.3s;
 }
 
 .nav-links a:hover {
-    color: gold;
+    color: var(--gold);
 }
 
-/* Hero Section */
+/* ===========================
+   Hero
+=========================== */
 .hero {
     height: 90vh;
-    background: url('https://images.unsplash.com/photo-1549887534-3db1bd59dcca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
+    background: url('https://images.unsplash.com/photo-1549887534-3db1bd59dcca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80')
+        no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,20 +81,24 @@ body {
 }
 
 .btn {
-    background: gold;
+    background: var(--gold);
     color: black;
     padding: 0.7rem 1.5rem;
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
     transition: 0.3s;
+    border: none;
+    cursor: pointer;
 }
 
 .btn:hover {
-    background: #d4af37;
+    background: var(--gold-light);
 }
 
-/* Info Section */
+/* ===========================
+   Info Section
+=========================== */
 .info {
     padding: 4rem 2rem;
     text-align: center;
@@ -83,31 +109,53 @@ body {
     max-width: 500px;
 }
 
+.guild-level h3 {
+    color: var(--gold);
+}
+
 .level-bar {
     background: #333;
     border-radius: 10px;
     overflow: hidden;
     height: 20px;
     margin: 0.5rem 0;
+    box-shadow: inset 0 0 6px #000;
 }
 
 .level-progress {
-    background: gold;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
     height: 100%;
-    width: 0;
-    transition: width 0.3s;
+    width: 0; /* Start */
+    transition: width 2s cubic-bezier(0.65, 0, 0.35, 1);
+    box-shadow: 0 0 8px var(--gold-light);
 }
 
+/* ===========================
+   Boosts
+=========================== */
 .boost-list {
     list-style: none;
     padding: 0;
     margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .boost-list li {
-    margin: 0.5rem 0;
+    background: var(--dark-panel);
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    color: var(--gold-light);
+    font-weight: bold;
+    text-shadow: 0 0 6px rgba(212, 175, 55, 0.5);
 }
 
+/* ===========================
+   Erwartungen / Angebote
+=========================== */
 .expectations-container {
     display: flex;
     justify-content: center;
@@ -117,10 +165,22 @@ body {
 }
 
 .expectations-container h3 {
-    color: gold;
+    color: var(--gold);
 }
 
-/* Leaders Section */
+.expectations,
+.offerings {
+    background: var(--dark-panel);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--bronze);
+    flex: 1;
+    min-width: 250px;
+}
+
+/* ===========================
+   Leaders Section
+=========================== */
 .leaders {
     padding: 4rem 2rem;
     text-align: center;
@@ -128,24 +188,15 @@ body {
 
 .leader-grid {
     display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    margin-top: 2rem;
-}
-
-/* Zwei Karten oben, eine mittig unten */
-.leader-grid.two-top-one-bottom {
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
-}
-
-.leader-grid.two-top-one-bottom .center-card {
-    grid-column: 1 / span 2; /* nimmt beide Spalten */
-    justify-self: center;
+    max-width: 700px;
+    margin: 2rem auto 0;
 }
 
 .leader-card {
-    background: #1a1a1a;
-    border: 1px solid gold;
+    background: var(--dark-panel);
+    border: 1px solid var(--gold);
     padding: 1.5rem;
     border-radius: 10px;
     width: 100%;
@@ -154,7 +205,15 @@ body {
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
 
-/* Contact Section */
+/* dritte Karte mittig platzieren */
+.leader-card.center-card {
+    grid-column: 1 / span 2;
+    justify-self: center;
+}
+
+/* ===========================
+   Kontaktformular
+=========================== */
 .contact {
     padding: 4rem 2rem;
     display: none;
@@ -174,10 +233,12 @@ body {
     padding: 0.7rem;
     border: none;
     border-radius: 5px;
+    background: #222;
+    color: var(--text-light);
 }
 
 .contact-form button {
-    background: gold;
+    background: var(--gold);
     border: none;
     padding: 0.8rem;
     font-weight: bold;
@@ -187,14 +248,52 @@ body {
 }
 
 .contact-form button:hover {
-    background: #d4af37;
+    background: var(--gold-light);
 }
 
-/* Footer */
+/* ===========================
+   Email Popup
+=========================== */
+.email-popup {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: var(--dark-panel);
+    border: 2px solid var(--gold);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    display: none;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 2000;
+}
+
+.email-popup.visible {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--gold);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+/* ===========================
+   Footer
+=========================== */
 footer {
     text-align: center;
     padding: 2rem;
     background: #000;
-    color: #aaa;
+    color: var(--text-muted);
     font-size: 0.9rem;
 }
