@@ -467,24 +467,35 @@ body {
     font-style: italic;
 }
 
-/* Dritte Karte in der Mitte darunter */
-.leader-card.centered {
-    grid-column: 1 / -1; /* Nimmt beide Spalten ein */
-    justify-self: center;
-    max-width: 300px; /* Etwas schmaler für besseren visuellen Effekt */
+/* ===== 5-FELDER LAYOUT FÜR GILDENTEAM ===== */
+.leader-grid.five-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 2rem;
+    max-width: 700px;
+    margin: 2rem auto 0;
 }
 
-/* Mobile Ansicht */
+/* Zentrierte Karte in der zweiten Reihe */
+.leader-card.centered-one {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 300px;
+}
+
+/* Mobile Ansicht für 5-Felder Layout */
 @media (max-width: 600px) {
-    .leader-grid {
+    .leader-grid.five-layout {
         grid-template-columns: 1fr;
     }
     
-    .leader-card.centered {
+    .leader-card.centered-one {
         grid-column: 1;
         max-width: 100%;
     }
 }
+
 /* ===== KONTAKTFORMULAR ===== */
 .contact {
     padding: 5rem 2rem;
