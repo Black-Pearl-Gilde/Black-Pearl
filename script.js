@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const progressBar = document.getElementById('level-bar');
     if (progressBar) {
         setTimeout(() => {
-            progressBar.style.width = '1%';
+            progressBar.style.width = '71%';
         }, 500);
     }
 
