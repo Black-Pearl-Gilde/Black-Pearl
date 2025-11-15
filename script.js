@@ -51,14 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Progress Bar Animation
-    const progressBar = document.getElementById('level-bar');
-    if (progressBar) {
-        setTimeout(() => {
-            progressBar.style.width = '71%';
-        }, 500);
-    }
-
     // Navbar Link Smooth Scroll
     document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
