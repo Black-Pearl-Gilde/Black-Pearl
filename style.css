@@ -280,7 +280,7 @@ body {
 }
 
 .level-bar::after {
-    content: '3%'; /* ANGEPASST: 1% statt 80% */
+    content: '71%'; /* ANGEPASST: 1% statt 80% */
     position: absolute;
     right: 10px;
     top: 50%;
