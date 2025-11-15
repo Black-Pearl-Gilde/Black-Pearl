@@ -230,7 +230,7 @@ body {
     background: var(--gold);
 }
 
-/* Gildenlevel Progress Bar - ANGEPASST auf Stufe 1 von 100 */
+/* Gildenlevel Progress Bar - ANGEPASST auf Stufe 71 von 100 */
 .guild-level {
     margin: 3rem auto;
     text-align: center;
@@ -260,7 +260,7 @@ body {
 
 .level-progress {
     height: 100%;
-    width: 10%; /* ANGEPASST: 1% statt 0 für Stufe 1 */
+    width: 71%; /* KORRIGIERT: 71% für Stufe 71 */
     background: linear-gradient(90deg, var(--bronze), var(--gold));
     transition: width 2s cubic-bezier(0.25, 0.1, 0.25, 1);
     position: relative;
@@ -280,7 +280,7 @@ body {
 }
 
 .level-bar::after {
-    content: '71%'; /* ANGEPASST: 1% statt 80% */
+    content: '71%'; /* KORRIGIERT: 71% statt 10% */
     position: absolute;
     right: 10px;
     top: 50%;
